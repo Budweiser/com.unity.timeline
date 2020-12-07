@@ -23,7 +23,10 @@ namespace UnityEditor.Timeline.Signals
         void OnEnable()
         {
             m_Target = target as SignalReceiver;
-            InitTreeView(serializedObject);
+            if (m_Target != null)
+            {
+                InitTreeView(serializedObject);
+            }
 
             Undo.undoRedoPerformed += OnUndoRedo;
         }
